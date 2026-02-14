@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0d1424;
+  --foreground: #f5f0e8;
+  --muted: #a39e94;
+  --accent: #c9a227;
+  --accent-glow: rgba(201, 162, 39, 0.25);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-glow: var(--accent-glow);
+  --font-heading: var(--font-trajan), serif;
+  --font-body: var(--font-cormorant), serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--background);
+}
+
+body {
+  background: var(--background) !important;
+  color: var(--foreground) !important;
+  font-family: var(--font-body);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* Fallbacks so theme colors always apply */
+.text-foreground { color: var(--foreground); }
+.text-muted { color: var(--muted); }
+.text-accent { color: var(--accent); }
+.text-foreground\/90 { color: rgba(245, 240, 232, 0.9); }
+.text-foreground\/85 { color: rgba(245, 240, 232, 0.85); }
+.bg-background { background-color: var(--background); }
+.bg-accent { background-color: var(--accent); }
+.border-accent { border-color: var(--accent); }
+
+.safe-area-pb {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Ambient vignette — very slow loop; off when reduced-motion */
+.page-vignette {
+  background: radial-gradient(
+    ellipse 80% 80% at 50% 50%,
+    transparent 40%,
+    rgba(0, 0, 0, 0.25) 100%
+  );
+  animation: vignette-pulse 20s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-vignette {
+    animation: none;
+  }
+}
+
+@keyframes vignette-pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Focus ring for accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Concierge bar: disable Reserve hover fill when user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .sticky-bar-reserve:hover {
+    background-color: transparent !important;
+    color: var(--accent) !important;
+  }
+}

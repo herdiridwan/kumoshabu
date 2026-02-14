@@ -1,0 +1,106 @@
+{
+  "beefCuts": [
+    { "id": "sirloin", "name": "Sirloin A5", "description": "Premium A5 Wagyu sirloin with exceptional marbling. Our signature cut for the finest shabu shabu and sukiyaki experience.", "image": "/assets/beef-sirloin.jpg" },
+    { "id": "chuck-eye-roll", "name": "Chuck Eye Roll", "description": "Rich and flavourful chuck eye roll, ideal for both hot pot styles. Balanced marbling and tenderness.", "image": "/assets/beef-chuck-eye-roll.jpg" },
+    { "id": "brisket", "name": "Brisket", "description": "Slow-rendered brisket cut, perfect for simmering. Deep beef flavour and satisfying texture.", "image": "/assets/beef-brisket.jpg" },
+    { "id": "short-plate", "name": "Short Plate", "description": "Wagyu short plate with beautiful marbling. A favourite for shabu shabu with a rich, buttery finish.", "image": "/assets/beef-short-plate.jpg" },
+    { "id": "d-rump", "name": "D-Rump", "description": "Lean yet tender D-rump cut. A refined choice for those who prefer a cleaner, meat-forward profile.", "image": "/assets/beef-d-rump.jpg" }
+  ],
+  "categories": [
+    {
+      "id": "shabu-shabu",
+      "name": "Shabu Shabu",
+      "subtitle": "Hot pot with premium cuts",
+      "heroImage": "/assets/Shabu Shabu.png",
+      "soupDescription": "Choose your broth to cook our premium cuts. Each soup is made in-house and designed to complement the delicate flavour of Wagyu—dip in ponzu or sesame to taste.",
+      "soupChoice": ["Dashi", "Shoyu", "Spicy Miso"],
+      "items": [
+        { "name": "SET D Sirloin", "price": 580, "description": "Premium A5 sirloin, our signature cut.", "image": "/assets/Shabu Shabu.png", "chef_pick": true, "recommended": true, "serves": "1-2", "pairing": ["Ponzu", "Ocha"] },
+        { "name": "SET A Short Plate", "price": 200, "description": "Wagyu short plate, perfect for shabu shabu.", "image": "/assets/Shabu Shabu.png", "recommended": true, "serves": "1-2", "pairing": ["Ponzu", "Sesame"] },
+        { "name": "SET B Brisket", "price": 250, "description": "Rich brisket slices for simmering.", "recommended": true, "serves": "1-2" },
+        { "name": "SET C Chuck Eye Roll", "price": 300, "description": "Balanced marbling, ideal for hot pot.", "recommended": true, "serves": "1-2" },
+        { "name": "Additional Short Plate 100gr", "price": 150 },
+        { "name": "Additional Brisket 100gr", "price": 200 },
+        { "name": "Additional Chuck Eye Roll 100gr", "price": 250 },
+        { "name": "Additional Sirloin 100gr", "price": 530 }
+      ]
+    },
+    {
+      "id": "sukiyaki",
+      "name": "Sukiyaki",
+      "subtitle": "Sweet-savoury simmered beef",
+      "heroImage": "/assets/Sukiyaki.png",
+      "items": [
+        { "name": "SET D Sirloin", "price": 580, "description": "Premium sirloin sukiyaki.", "image": "/assets/Sukiyaki.png", "chef_pick": true, "recommended": true, "serves": "1-2" },
+        { "name": "SET A D-Rump", "price": 200, "description": "Lean D-rump for sukiyaki.", "image": "/assets/Sukiyaki.png", "serves": "1-2" },
+        { "name": "SET B Brisket", "price": 250, "description": "Brisket in sweet soy broth.", "serves": "1-2" },
+        { "name": "SET C Chuck Eye Roll", "price": 300, "serves": "1-2" },
+        { "name": "Additional D Rump 100gr", "price": 150 },
+        { "name": "Additional Brisket 100gr", "price": 200 },
+        { "name": "Additional Chuck Eye Roll 100gr", "price": 250 },
+        { "name": "Additional Sirloin 100gr", "price": 530 }
+      ]
+    },
+    {
+      "id": "lunch-set",
+      "name": "Lunch Set",
+      "subtitle": "Wagyu bowls and sets",
+      "items": [
+        { "name": "Wagyu Niku Udon Set", "price": 78, "image": "/assets/Wagyu Udon.png", "description": "Wagyu beef with udon noodles.", "serves": "1", "recommended": true },
+        { "name": "Wagyu Beef Bowl Small", "price": 98, "image": "/assets/Lunch Set 1.png", "serves": "1" },
+        { "name": "Wagyu Yakiniku Bowl Small", "price": 118, "image": "/assets/Lunch Set 2.png", "serves": "1" },
+        { "name": "Wagyu Beef Bowl Large", "price": 98, "image": "/assets/Lunch Set 1.png", "serves": "1-2" },
+        { "name": "Wagyu Yakiniku Bowl Large", "price": 118, "image": "/assets/Lunch Set 2.png", "serves": "1-2" },
+        { "name": "Wagyu Curry Rice", "price": 98, "image": "/assets/Lunch Set 3.png", "serves": "1" },
+        { "name": "Wagyu Hamburg", "price": 148, "image": "/assets/Lunch Set 3.png", "serves": "1" }
+      ]
+    },
+    {
+      "id": "snacks",
+      "name": "Snacks",
+      "subtitle": "Sides and small plates",
+      "items": [
+        { "name": "Wagyu Cheese Ball", "price": 48, "image": "/assets/Wagyu Cheese Ball 2.png" },
+        { "name": "Edamame", "price": 38, "image": "/assets/Snacks 1.png" },
+        { "name": "Potato Salad", "price": 38, "image": "/assets/Potato Salad.png" },
+        { "name": "Dashimaki Tamago", "price": 38, "image": "/assets/Snacks 2.png" },
+        { "name": "Gyusuji Nikomi", "price": 48, "image": "/assets/Snacks 3.png" },
+        { "name": "Chikuwa Isobe", "price": 29, "image": "/assets/Snacks 4.png" },
+        { "name": "Chicken Karaage", "price": 48, "image": "/assets/Chicken Karaage.png", "recommended": true },
+        { "name": "Kimchi", "price": 29, "image": "/assets/Snacks 1.png" }
+      ]
+    },
+    {
+      "id": "dessert",
+      "name": "Dessert",
+      "subtitle": "Sweet finish",
+      "items": [
+        { "name": "Warabi Mochi", "price": 20, "image": "/assets/Marabi Mochi.png", "description": "Traditional warabi mochi.", "recommended": true },
+        { "name": "Daifuku Mochi 1 Pcs", "price": 25, "image": "/assets/Mochi.png" }
+      ]
+    },
+    {
+      "id": "drinks",
+      "name": "Drinks",
+      "subtitle": "Tea and refreshments",
+      "items": [
+        { "name": "Ocha Hot/Ice *Free Refill", "price": 12, "image": "/assets/Ocha.png", "description": "Japanese green tea.", "recommended": true },
+        { "name": "Soft Drink", "price": 20, "subItems": ["Coca Cola", "Coca Cola Zero", "Sprite", "Soda"] },
+        { "name": "Mineral Water", "price": 10 },
+        { "name": "Matcha Latte", "price": 32 }
+      ]
+    },
+    {
+      "id": "alcohol",
+      "name": "Alcohol",
+      "subtitle": "Beer, wine, spirits",
+      "items": [
+        { "name": "Beer Bali Hai", "price": 50, "image": "/assets/BaliHai.png" },
+        { "name": "Red Wine By Glass", "price": 165, "recommended": true },
+        { "name": "Whisky By Glass", "price": 98 },
+        { "name": "Shochu By Glass", "price": 80 },
+        { "name": "Soju", "price": 180 }
+      ]
+    }
+  ]
+}
