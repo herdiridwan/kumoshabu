@@ -1,20 +1,23 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { MenuItem } from "./MenuItem";
 import { SignatureCard } from "./SignatureCard";
+import { BrothSelection } from "./BrothSelection";
+import { SectionHeading } from "./SectionHeading";
 import type { MenuCategory, MenuItem as MenuItemType } from "@/lib/menu";
 
 type MenuListProps = {
   category: MenuCategory;
   isFirst?: boolean;
+  sectionRef?: (el: HTMLElement | null) => void;
+  sectionState?: { isActive: boolean; isPrevious: boolean };
 };
 
 function isAddMoreMeat(name: string): boolean {
   return /^Additional\s/i.test(name);
 }
 
-export function MenuList({ category, isFirst }: MenuListProps) {
+export function MenuList({ category, isFirst, sectionRef, sectionState }: MenuListProps) {
   const mainItems: MenuItemType[] = [];
   const addMoreItems: MenuItemType[] = [];
   for (const item of category.items) {
@@ -28,49 +31,23 @@ export function MenuList({ category, isFirst }: MenuListProps) {
 
   return (
     <section
+      ref={sectionRef}
       id={category.id}
-      className={`scroll-mt-24 py-16 ${!isFirst ? "pt-24 border-t border-accent/30" : ""}`}
+      className={`scroll-mt-24 py-10 ${!isFirst ? "pt-14 border-t border-accent/30" : ""}`}
       aria-labelledby={`category-${category.id}`}
     >
-      <motion.div
-        className="mb-10"
-        initial={{ opacity: 0, y: 8 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.35, ease: "easeOut" }}
-      >
-        <h2
-          id={`category-${category.id}`}
-          className="font-heading text-xl sm:text-2xl uppercase tracking-[0.2em] text-foreground"
-        >
-          {category.name}
-        </h2>
-        {category.subtitle && (
-          <p className="mt-2 font-body text-muted text-sm">{category.subtitle}</p>
-        )}
-        {category.soupChoice && category.soupChoice.length > 0 && (
-          <div className="mt-6 p-4 rounded-lg bg-foreground/5 border border-foreground/10">
-            <h3 className="font-heading text-xs uppercase tracking-[0.2em] text-foreground mb-2">
-              Soup choice
-            </h3>
-            {category.soupDescription && (
-              <p className="font-body text-muted text-sm mb-3">
-                {category.soupDescription}
-              </p>
-            )}
-            <ul className="flex flex-wrap gap-2 font-body text-sm text-foreground">
-              {category.soupChoice.map((soup) => (
-                <li
-                  key={soup}
-                  className="px-3 py-1.5 rounded-full bg-foreground/10 text-foreground"
-                >
-                  {soup}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </motion.div>
+      <SectionHeading
+        title={category.name}
+        subtitle={category.subtitle}
+        headingId={`category-${category.id}`}
+        isActive={sectionState?.isActive}
+        isPrevious={sectionState?.isPrevious}
+      />
+      {category.soupChoice && category.soupChoice.length > 0 && (
+        <div className="mb-6">
+          <BrothSelection brothKeys={category.soupChoice} />
+        </div>
+      )}
 
       {firstItem && (
         <SignatureCard item={firstItem} category={category} />
@@ -91,7 +68,7 @@ export function MenuList({ category, isFirst }: MenuListProps) {
       </ul>
 
       {showAddMoreMeat && addMoreItems.length > 0 && (
-        <div className="mt-16 pt-10 border-t border-foreground/10">
+        <div className="mt-10 pt-6 border-t border-foreground/10">
           <h3 className="font-heading text-xs uppercase tracking-[0.25em] text-muted mb-4">
             Add More Meat
           </h3>

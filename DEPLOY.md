@@ -1,5 +1,16 @@
 # Deploy KUMO to Vercel
 
+## After Git push → Vercel production (one-time setup)
+
+1. **Import the repo in Vercel** (do this once):  
+   **[Import herdiridwan/kumoshabu → Vercel](https://vercel.com/new/import?filter=next.js&repository-url=https%3A%2F%2Fgithub.com%2Fherdiridwan%2Fkumoshabu)**  
+   - Project name: **kumoshabu** → live at **kumoshabu.vercel.app**  
+   - Click **Deploy**.
+
+2. **From then on:** every `git push` to `main` will trigger a **production** deploy on Vercel. No extra steps.
+
+---
+
 ## 0. Push to GitHub (do this first)
 
 1. **Create a new repo on GitHub**  

@@ -50,6 +50,25 @@ export function getCategory(id: string): MenuCategory | undefined {
   return getCategories().find((c) => c.id === id);
 }
 
+export type SignatureItemEntry = {
+  item: MenuItem;
+  category: MenuCategory;
+};
+
+const SIGNATURE_CATEGORY_IDS = ["shabu-shabu", "sukiyaki", "snacks", "drinks", "alcohol"] as const;
+
+export function getSignatureItems(): SignatureItemEntry[] {
+  const categories = getCategories();
+  const result: SignatureItemEntry[] = [];
+  for (const id of SIGNATURE_CATEGORY_IDS) {
+    const category = categories.find((c) => c.id === id);
+    if (!category || !category.items.length) continue;
+    const item = category.items.find((i) => i.chef_pick) ?? category.items[0];
+    result.push({ item: { ...item }, category });
+  }
+  return result;
+}
+
 export function getChefPick(): MenuItem | undefined {
   for (const cat of getCategories()) {
     const pick = cat.items.find((i) => i.chef_pick);

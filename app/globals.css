@@ -104,10 +104,31 @@ body {
   outline-offset: 2px;
 }
 
-/* Concierge bar: disable Reserve hover fill when user prefers reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .sticky-bar-reserve:hover {
-    background-color: transparent !important;
-    color: var(--accent) !important;
+/* One-time gold shimmer on section headings — disabled when reduced motion */
+@keyframes shimmer-once {
+  0% {
+    background-position: 0% 0;
+  }
+  100% {
+    background-position: -100% 0;
   }
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  .section-heading-shimmer {
+    background: linear-gradient(
+      90deg,
+      var(--foreground) 0%,
+      var(--foreground) 38%,
+      var(--accent) 45%,
+      var(--foreground) 52%,
+      var(--foreground) 100%
+    );
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shimmer-once 0.8s ease-out 1 forwards;
+  }
+}
+

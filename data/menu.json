@@ -60,7 +60,7 @@
       "name": "Snacks",
       "subtitle": "Sides and small plates",
       "items": [
-        { "name": "Wagyu Cheese Ball", "price": 48, "image": "/assets/Wagyu Cheese Ball 2.png" },
+        { "name": "Wagyu Cheese Ball", "price": 48, "image": "/assets/Wagyu Cheese Ball 2.png", "description": "Crisp A5 Wagyu and cheese croquettes." },
         { "name": "Edamame", "price": 38, "image": "/assets/Snacks 1.png" },
         { "name": "Potato Salad", "price": 38, "image": "/assets/Potato Salad.png" },
         { "name": "Dashimaki Tamago", "price": 38, "image": "/assets/Snacks 2.png" },
@@ -95,7 +95,7 @@
       "name": "Alcohol",
       "subtitle": "Beer, wine, spirits",
       "items": [
-        { "name": "Beer Bali Hai", "price": 50, "image": "/assets/BaliHai.png" },
+        { "name": "Beer Bali Hai", "price": 50, "image": "/assets/BaliHai.png", "description": "Light Indonesian lager." },
         { "name": "Red Wine By Glass", "price": 165, "recommended": true },
         { "name": "Whisky By Glass", "price": 98 },
         { "name": "Shochu By Glass", "price": 80 },

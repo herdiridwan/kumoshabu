@@ -17,6 +17,12 @@ const SIGNATURE_LABEL: Record<string, string> = {
   alcohol: "Signature alcohol",
 };
 
+/** Items that use a smaller, centered image (card size unchanged). */
+const SMALL_CENTERED_IMAGE_ITEMS = new Set([
+  "Beer Bali Hai",
+  "Ocha Hot/Ice *Free Refill",
+]);
+
 type SignatureCardProps = {
   item: MenuItemType;
   category: MenuCategory;
@@ -39,9 +45,15 @@ export function SignatureCard({ item, category }: SignatureCardProps) {
         viewport={{ once: true }}
         transition={{ duration: 0.35, ease: "easeOut" }}
       >
-        <div className="aspect-16/10 relative overflow-hidden bg-background/10">
+        <div className="aspect-16/10 relative overflow-hidden bg-background/10 flex items-center justify-center">
           <motion.span
-            className="block w-full h-full"
+            className={`block relative ${
+              item.name === "Wagyu Cheese Ball"
+                ? "w-[85%] h-[85%]"
+                : SMALL_CENTERED_IMAGE_ITEMS.has(item.name)
+                  ? "w-[65%] h-[65%]"
+                  : "w-full h-full"
+            }`}
             initial={reducedMotion ? undefined : { scale: 0.98, opacity: 0.9 }}
             whileInView={reducedMotion ? undefined : { scale: 1, opacity: 1 }}
             viewport={{ once: true }}
